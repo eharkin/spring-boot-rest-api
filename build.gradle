@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.0'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.spring.rest.api'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation (
+			'org.springdoc:springdoc-openapi-ui:1.7.0',
+			'org.springframework.boot:spring-boot-starter-web',
+			'org.springframework.boot:spring-boot-starter-webflux',
+			'org.springframework.boot:spring-boot-starter-actuator',
+			'org.springframework.boot:spring-boot-starter-data-jpa',
+			'com.h2database:h2:2.2.224',
+			'org.projectlombok:lombok:1.18.26',
+			'com.diffplug.spotless:spotless-plugin-gradle:6.23.3'
+	)
+
+	compileOnly('org.mapstruct:mapstruct:1.5.5.Final',
+				'org.projectlombok:lombok')
+	annotationProcessor (
+			'org.projectlombok:lombok:1.18.26',
+			'org.mapstruct:mapstruct-processor:1.5.5.Final')
+	testImplementation(
+			'io.rest-assured:rest-assured:5.3.0',
+			'io.rest-assured:rest-assured-all:5.3.0',
+			'org.springframework.boot:spring-boot-starter-test',
+			'org.springframework.kafka:spring-kafka-test:3.0.11',
+			'com.h2database:h2:2.2.224',
+			'com.squareup.okhttp3:mockwebserver:4.9.1',
+			'com.squareup.okhttp3:okhttp:4.9.1',
+			'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0'
+	)
+	testCompileOnly('org.mapstruct:mapstruct:1.5.2.Final')
+	testAnnotationProcessor('org.mapstruct:mapstruct-processor:1.5.2.Final')
+}

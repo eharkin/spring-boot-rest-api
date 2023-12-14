@@ -1,0 +1,38 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: demo
+  datasource:
+    url: jdbc:h2:mem:studentdb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+    jpa:
+      spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+
+security.ignored: /**
+
+# Enable CORS for Actuator Endpoints
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-origins: '*'
+        allowed-methods: OPTIONS,GET
+        allowed-headers: '*'
+      exposure:
+        include: health,prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+
+server:
+  port: 8080
+  servlet:
+    # Prefix all routes with /api
+    contextPath: /api
