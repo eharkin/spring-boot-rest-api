@@ -7,17 +7,22 @@ import com.spring.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class StudentServiceGetStudentsImpl implements StudentServiceGetStudents {
 
     // Dependency Injection of Repository Bean
-    @Autowired
-    StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
+    private final StudentMapper studentMapper;
 
+    // Dependency Injection of Repository Bean at constructor injection
     @Autowired
-    StudentMapper studentMapper;
+    public StudentServiceGetStudentsImpl(StudentRepository studentRepository, StudentMapper studentMapper) {
+        this.studentRepository = studentRepository;
+        this.studentMapper = studentMapper;
+    }
 
     @Override
     public List<StudentDTO> getStudents() {

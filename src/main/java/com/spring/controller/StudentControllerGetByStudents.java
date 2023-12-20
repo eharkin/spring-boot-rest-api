@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.dto.StudentDTO;
+import com.spring.service.StudentServiceGetStudents;
 import com.spring.service.StudentServiceGetStudentsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class StudentControllerGetByStudents {
 
     // Dependency Injection of Service Layer
     @Autowired
-    StudentServiceGetStudentsImpl studentServiceGetStudents;
+    StudentServiceGetStudents studentServiceGetStudents;
 
     @GetMapping(value = "getAllStudents", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

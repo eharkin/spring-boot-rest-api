@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.spring.service.StudentServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-20T16:23:21" hostname="LAMU0FJX57HG00P.uhc.com." time="1.939">
+  <properties/>
+  <testcase name="fetchStudentsInformationThrowsException()" classname="com.spring.service.StudentServiceTest" time="1.939"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
